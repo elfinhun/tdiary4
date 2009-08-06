@@ -22,7 +22,7 @@
 			<td><s:textfield label="job_code" name="userInfo.job_code" /></td>
 						
 		</tr>	
-		<s:submit />
+		<s:submit value="insert" />
 		
 	</table>
 	</br>

@@ -20,7 +20,7 @@
 <body>
 	
 	
-	<table border="1" >
+	<table border="1" width="500" >
 	<tr>
 			<!-- <td>#row.index</td> -->
 			<td>num</td>			
@@ -37,7 +37,7 @@
 			<td>upd_dt</td>			
 		</tr>
 	<s:iterator value="list" status="row">
-		<tr> 
+		<tr>  
 			<!--<td><s:property value="#row.index"/></td> -->
 			<s:url id="View" action="userInfoView"><s:param name="userInfo.user_seq"><s:property value="user_seq"/></s:param></s:url>
 			<td>
@@ -55,15 +55,17 @@
 			<td><s:property value="list[#row.index].update_date"/></td>  
 		</tr>
 		
-		
-		
-	</s:iterator>
+	</s:iterator>	
 	</br>
-	<s:form action="userInfoInsertForm" method="post">
-			<s:submit />
-		</s:form>
-		
-		
+	</table>
+	<table>
+		<tr>
+			<td>
+				<s:form action="userInfoInsertForm" method="post">
+					<s:submit value="insertForm"/>
+				</s:form>
+			</td>
+		</tr>
 	</table>
 	
 </body>
