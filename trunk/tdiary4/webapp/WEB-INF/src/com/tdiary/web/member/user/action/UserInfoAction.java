@@ -17,10 +17,16 @@ public class UserInfoAction extends ActionSupport{
 	public void setUserInfoService(UserInfoServiceInter userInfoService) {
 		this.userInfoService = userInfoService;
 	}
-	/* -- */
-
+	/* -- */	
+	
 	public String userInfoInsertForm(){
 		
+		return SUCCESS;
+		
+	}
+	
+	public String userInfoModifyForm(){		
+		userInfo=userInfoService.selectUserInfo(userInfo);
 		return SUCCESS;
 		
 	}
@@ -30,21 +36,13 @@ public class UserInfoAction extends ActionSupport{
 		
 		list = userInfoService.selectUserInofoList(userInfo);
 		
-		System.out.println("list.size()  "+list.size());
-		
-		for(int i=0; i<list.size(); i++){
-			userInfo = (UserInfo)list.get(i);
-			System.out.println("userInfo.getCreate_date()  "+userInfo.getCreate_date());
-		}
-		
 		return SUCCESS;
 	}
 	
 	public String userInfoView(){
 		
-		//userInfo=userInfoService.selectUserInfo(userInfo);
-		
-		System.out.println("userInfo.getUser_seq()  "+userInfo.getUser_seq());
+		System.out.println("userInfo.getUser_seq()  "+userInfo.getUser_seq());		
+		userInfo=userInfoService.selectUserInfo(userInfo);
 		
 		return SUCCESS;
 	}
@@ -56,6 +54,7 @@ public class UserInfoAction extends ActionSupport{
 		list = userInfoService.selectUserInofoList(userInfo);
 		return SUCCESS;
 	}
+	
 	
 	
 	
