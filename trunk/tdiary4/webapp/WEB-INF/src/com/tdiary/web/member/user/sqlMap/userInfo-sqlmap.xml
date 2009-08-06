@@ -26,7 +26,19 @@
 	
 	<select id="selectObject" parameterClass="com.tdiary.web.member.user.model.UserInfo" resultClass="com.tdiary.web.member.user.model.UserInfo">
 	<![CDATA[
-		SELECT * FROM USER_INFO
+		SELECT 	USER_SEQ
+		     ,	USER_ID
+		     ,	PASSWORD
+		     ,	NAME
+		     ,	PHONE_NO
+		     ,	ADDRESS
+		     ,	RESIDENT_NO
+		     ,	JOB_CODE
+		     ,	SYSTEM_USE_CODE
+		     ,	CREATE_DATE
+		     ,	UPDATE_DATE
+		  FROM USER_INFO
+		 WHERE USER_SEQ=#user_seq#
 	]]>
 		
 	</select>
