@@ -40,6 +40,13 @@ public class UserInfoServiceImpl implements UserInfoServiceInter{
 		int i=userInfoDao.update(userInfo);
 	}
 	
+	@Override
+	public void deleteUserInfo(UserInfo userInfo) {
+		
+		int i=userInfoDao.delete(userInfo);
+		
+	}
+	
 	
 
 }

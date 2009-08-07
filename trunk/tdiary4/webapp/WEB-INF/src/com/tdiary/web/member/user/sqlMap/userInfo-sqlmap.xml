@@ -71,13 +71,25 @@
 	
 	<update id="update" parameterClass="com.tdiary.web.member.user.model.UserInfo">
 		<![CDATA[
+		UPDATE  USER_INFO 
+		   SET  USER_ID = #user_id# 
+		     ,	PASSWORD = #password# 
+		     ,	NAME = #name# 
+		     ,	PHONE_NO = #phone_no# 
+		     ,	ADDRESS = #address# 
+		     ,	RESIDENT_NO = #resident_no# 
+		     ,	JOB_CODE = #job_code# 
+		     ,	SYSTEM_USE_CODE = #system_use_code# 
+		     ,	UPDATE_DATE = SYSDATE()
+		 WHERE	USER_SEQ = #user_seq# 
 		
 		]]>  
 	</update>
 	
 	<delete id="delete" parameterClass="com.tdiary.web.member.user.model.UserInfo">
 		<![CDATA[
-		
+		DELETE FROM USER_INFO 
+ 		 WHERE USER_SEQ = #user_seq#
 		]]>  
 	</delete>
 		

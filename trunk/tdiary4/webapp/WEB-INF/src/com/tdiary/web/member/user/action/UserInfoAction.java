@@ -55,12 +55,17 @@ public class UserInfoAction extends ActionSupport{
 		return SUCCESS;
 	}
 	
-	
-	
-	
 	public String userInfoModify(){
 		
 		userInfoService.updateUserInfo(userInfo);
+		list = userInfoService.selectUserInofoList(userInfo);
+		return SUCCESS;
+	}
+	
+	public String userInfoDel(){
+		
+		userInfoService.deleteUserInfo(userInfo);
+		list = userInfoService.selectUserInofoList(userInfo);
 		return SUCCESS;
 	}
 	
