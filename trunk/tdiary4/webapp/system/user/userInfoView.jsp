@@ -93,6 +93,12 @@
 					<s:submit value="modifytForm"/>
 				</s:form>
 			</td>
+			<td>
+				<s:form action="userInfoDel" method="post">
+					<s:hidden name="userInfo.user_seq"/>
+					<s:submit value="delete"/>
+				</s:form>
+			</td>
 		</tr>
 	</table>
 

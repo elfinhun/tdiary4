@@ -6,26 +6,40 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=EUC-KR">
 <title>userInfoInsert</title>
+
+ <script src="/common/jquery/jquery-1.3.2.js"></script>
+ 
+ <script src="../test.js"></script>
+<script type="text/javascript">
+	
+	//test();
+
+	
+	
+	
+</script>
+
 </head>
 <body>
+<table>
+	<tr>
+		<td>fffff</td>
+		<td><input type="text" id="test"/></td>
+	</tr>
+</table>
 	
 <s:form action="userInfoInsert" method="post"  >	
-	<table border="1" >
-	<tr>
 				
-			<td><s:textfield label="user_id" name="userInfo.user_id" /></td>
-			<td><s:password label="password" name="userInfo.password" /></td>
-			<td><s:textfield label="name" name="userInfo.name" /></td>
-			<td><s:textfield label="phone_no" name="userInfo.phone_no" /></td>
-			<td><s:textfield label="address" name="userInfo.address" /></td>
-			<td><s:textfield label="resident_no" name="userInfo.resident_no" /></td>
-			<td><s:textfield label="job_code" name="userInfo.job_code" /></td>
-						
-		</tr>	
-		<s:submit value="insert" />
-		
-	</table>
-	</br>
+			<s:textfield label="user_id" name="userInfo.user_id"  id="user_id"/>
+			<s:password label="password" name="userInfo.password" />
+			<s:textfield label="name" name="userInfo.name" />
+			<s:textfield label="phone_no" name="userInfo.phone_no" />
+			<s:textfield label="address" name="userInfo.address" />
+			<s:textfield label="resident_no" name="userInfo.resident_no" />
+			<s:textfield label="job_code" name="userInfo.job_code" />
+			</br>					
+			<s:submit value="insert" />
+	
 	
 </s:form>	
 	

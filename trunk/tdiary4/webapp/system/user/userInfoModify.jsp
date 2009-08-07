@@ -7,83 +7,34 @@
 <meta http-equiv="Content-Type" content="text/html; charset=EUC-KR">
 <title>userInfoView</title>
 </head>
-<body>			
+<body>
+	<s:form action="userInfoModify" method="post">		
+		<s:textfield label="user_seq" name="userInfo.user_seq" readonly="true"/> 		
 	
-	<table border="1">
-		<tr>
-			<td>
-				user_seq
-			</td>
-			<td>
-				<s:textfield name="userInfo.user_seq" /> 
-			</td>
-			<td>
-				user_id
-			</td>	
-			<td>
-				<s:textfield name="userInfo.user_id"/>
-			</td>
-		</tr>
-		<tr>
-			<td>
-				name
-			</td>
-			<td>
-				<s:textfield name="userInfo.name"/>
-			</td>
-			<td>
-				phone_no
-			</td>
-			<td>
-				<s:textfield name="userInfo.phone_no"/>
-			</td>
-		</tr>
+		<s:textfield label="user_id" name="userInfo.user_id"/>
 		
+		<s:textfield label="password" name="userInfo.password"/>
+
+		<s:textfield label="name" name="userInfo.name"/>
+
+		<s:textfield label="phone_no" name="userInfo.phone_no"/>
 		
-		<tr>
-			<td>
-				address
-			</td>
-			<td>
-				<s:textfield name="userInfo.address"/>
-			</td>
-			<td>
-				resident_no
-			</td>	
-			<td>
-				<s:textfield name="userInfo.resident_no"/>
-			</td>
-		</tr>
-		<tr>
-			<td>
-				job_code
-			</td>
-			<td>
-				<s:textfield name="userInfo.job_code"/>
-			</td>
-			<td>
-				sys_use_cd
-			</td>
-			<td>
-				<s:textfield name="userInfo.sys_use_cd"/>
-			</td>
-		</tr>
+		<s:textfield label="address" name="userInfo.address"/>				
+	
+		<s:textfield label="resident_no" name="userInfo.resident_no"/>
+
+		<s:textfield label="job_code" name="userInfo.job_code"/>
+
+		<s:textfield label="sys_use_cd" name="userInfo.sys_use_cd"/>	
 		
-		<tr>
-			<td>
-				create_dt
-			</td>
-			<td>
-				<s:textfield name="userInfo.create_date"/>
-			</td>
-			<td>
-				upd_dt
-			</td>
-			<td>
-				<s:textfield name="userInfo.update_date"/>
-			</td>
-		</tr>
-	</table>
+		<s:textfield label="create_dt" name="userInfo.create_date"/>
+	
+		<s:textfield label="upd_dt" name="userInfo.update_date"/>
+		</br>
+		<s:submit value="modify"/>
+		
+	</s:form>	
+	
 	
 	
 
