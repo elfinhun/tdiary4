@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!DOCTYPE struts PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN" "http://struts.apache.org/dtds/struts-2.0.dtd">
+
+<struts>
+	<!-- <constant name="struts.objectFactory" value="org.apache.struts2.spring.StrutsSpringObjectFactory"/>-->
+												 
+	<package name="default" extends="struts-default" namespace="">
+	
+	    <action name="userInfoList" class="userInfoAction" method="userInfoList">
+	    	<result>/system/user/userInfoList.jsp</result>
+	    </action>
+	    
+	    <action name="userInfoInsertForm" class="userInfoAction" method="userInfoInsertForm">
+	    	<result>/system/user/userInfoInsert.jsp</result>
+	    </action>
+	    
+	    <action name="userInfoInsert" class="userInfoAction" method="userInfoInsert">
+	    	<result>/system/user/userInfoList.jsp</result>
+	    </action>
+	    
+	    <action name="userInfoView" class="userInfoAction" method="userInfoView">
+	    	<result>/system/user/userInfoView.jsp</result>
+	    </action>
+	    
+	    <action name="userInfoModifyForm" class="userInfoAction" method="userInfoModifyForm">
+	    	<result>/system/user/userInfoModify.jsp</result>
+	    </action>
+	    
+	    <action name="userInfoModify" class="userInfoAction" method="userInfoModify">
+	    	<result>/system/user/userInfoList.jsp</result>
+	    </action>
+	    
+	    <action name="userInfoDel" class="userInfoAction" method="userInfoDel">
+	    	<result>/system/user/userInfoList.jsp</result>
+	    </action>
+	    
+	    
+	</package>
+</struts>
