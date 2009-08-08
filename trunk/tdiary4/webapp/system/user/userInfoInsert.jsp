@@ -15,7 +15,7 @@
 	//test();
 
 	
-	
+	alert();
 	
 </script>
 
