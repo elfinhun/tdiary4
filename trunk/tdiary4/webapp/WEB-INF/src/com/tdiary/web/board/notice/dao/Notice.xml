@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!DOCTYPE sqlMap PUBLIC "-//ibatis.apache.org//DTD SQL Map 2.0//EN"
+    "http://ibatis.apache.org/dtd/sql-map-2.dtd">
+
+<sqlMap namespace="Notice">
+	<typeAlias alias="notice" type="com.tdiary.web.board.notice.model.Notice"/>
+	
+	<resultMap id="noticeResult" class="com.tdiary.web.board.notice.model.Notice">
+		<result property="noticeSeq" column="NOTICE_SEQ" jdbcType="int" />
+		<result property="noticeTitle" column="NOTICE_TITLE" jdbcType="VARCHAR" />
+		<result property="noticeContent" column="NOTICE_CONTENT" jdbcType="VARCHAR" />
+		<result property="attachment" column="ATTACHMENT" jdbcType="VARCHAR" />
+		<result property="attachmentServer" column="ATTACHMENT_SERVER" jdbcType="VARCHAR" />
+		<result property="createDate" column="CREATE_DATE" jdbcType="int" />
+		<result property="createUser" column="CREATE_USER" jdbcType="datetime" />
+		<result property="updateDate" column="UPDATE_DATE" jdbcType="int" />
+		<result property="updateUser" column="UPDATE_USER" jdbcType="datetime" />
+	</resultMap>		
+	
+	<parameterMap id="selectParameters" class="map" >
+	    <parameter property="title" jdbcType="VARCHAR" javaType="java.lang.String" mode="IN"/>
+	    <parameter property="noticeContent" jdbcType="VARCHAR" javaType="java.lang.String" mode="IN"/>
+	    <parameter property="startDate" jdbcType="datetime" javaType="java.util.Date" mode="IN"/>
+	    <parameter property="endDate" jdbcType="datetime" javaType="java.util.Date" mode="IN"/>
+	</parameterMap>
+	
+	  <select id="getNoticeList" resultMap="noticeResult">
+		    SELECT 
+				NOTICE.NOTICE_SEQ,
+				NOTICE.NOTICE_TITLE,
+				NOTICE.NOTICE_CONTENT,
+				NOTICE.ATTACHMENT,
+				NOTICE.ATTACHMENT_SERVER,
+				NOTICE.CREATE_DATE,
+				NOTICE.CREATE_USER,
+				NOTICE.UPDATE_DATE,
+				NOTICE.UPDATE_USER
+			FROM NOTICE
+	</select>
+  
+	<select id="getLatestNoticeList" resultMap="noticeResult" parameterClass="int">
+		    SELECT 
+				NOTICE.NOTICE_SEQ,
+				NOTICE.NOTICE_TITLE,
+				NOTICE.NOTICE_CONTENT,
+				NOTICE.ATTACHMENT,
+				NOTICE.ATTACHMENT_SERVER,
+				NOTICE.CREATE_DATE,
+				NOTICE.CREATE_USER,
+				NOTICE.UPDATE_DATE,
+				NOTICE.UPDATE_USER
+			FROM NOTICE
+			LIMIT #value#
+	</select>
+	
+	<delete id="deleteNotice" parameterClass="notice">
+			DELETE FROM NOTICE
+			WHERE NOTICE.NOTICE_SEQ = #noticeSeq#
+	</delete>
+	
+	<select id="getNoticeCount" resultClass="int">
+			SELECT COUNT(*) AS ROWCOUNT FROM NOTICE
+	</select>
+	
+	<insert id="insertNotice" parameterClass="notice">
+			INSERT INTO NOTICE
+				(NOTICE_TITLE, NOTICE_CONTENT, ATTACHMENT, ATTACHMENT_SERVER, CREATE_DATE, CREATE_USER, UPDATE_DATE, UPDATE_USER)
+			VALUES
+				(#noticeTitle#, #noticeContent#, #attachment#, #attachmentServer#, #createDate#, #createUser#, #updateDate#, #updateUser#)
+	</insert>
+		
+	<select id="selectNotice" resultMap="noticeResult" parameterMap="selectParameters" >
+		    SELECT 
+				NOTICE.NOTICE_SEQ,
+				NOTICE.NOTICE_TITLE,
+				NOTICE.NOTICE_CONTENT,
+				NOTICE.ATTACHMENT,
+				NOTICE.ATTACHMENT_SERVER,
+				NOTICE.CREATE_DATE,
+				NOTICE.CREATE_USER,
+				NOTICE.UPDATE_DATE,
+				NOTICE.UPDATE_USER
+			FROM NOTICE
+			WHERE NOTICE.NOTICE_TITLE = ?
+			  AND NOTICE.NOTICE_CONTENT = ?
+			  AND NOTICE.CREATE_DATE BETWEEN ? AND ?		
+	</select>
+	
+	<update id="updateNotice" parameterClass="notice" >
+			UPDATE NOITCE SET
+				NOTICE_TITLE = #noticeTitle#
+				NOTICE_CONTENT = #noticeContent#
+				ATTACHMENT = #attachment#
+				ATTACHMENT_SERVER = #attachmentServer#
+				CREATE_DATE = #createDate#
+				CREATE_USER = #createUser#
+				UPDATE_DATE = #updateDate#
+				UPDATE_USER = #updateUser#
+			WHERE NOTICE_SEQ = #noticeSeq#
+	</update>
+</sqlMap>
