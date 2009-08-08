@@ -5,7 +5,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=EUC-KR">
-<title>userInfoModify</title>
+<title>userInfoView</title>
 </head>
 <body>
 	<s:form action="userInfoModify" method="post">		
