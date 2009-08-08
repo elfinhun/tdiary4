@@ -5,24 +5,22 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=EUC-KR">
-<title>userInfoInsert</title> 
+<title>userInfoInsert</title>
+
+ <script src="/common/jquery/jquery-1.3.2.js"></script>
  
- <script src="/test.js"></script>
-  
-<script>
+ <script src="../test.js"></script>
+<script type="text/javascript">
 	
+	//test();
 
-  window.onload = function(){
-             alert('t');test();
-     }
-
+	
 	
 	
 </script>
 
 </head>
-<body >
-
+<body>
 <table>
 	<tr>
 		<td>fffff</td>
@@ -30,7 +28,20 @@
 	</tr>
 </table>
 	
-
+<s:form action="userInfoInsert" method="post"  >	
+				
+			<s:textfield label="user_id" name="userInfo.user_id"  id="user_id"/>
+			<s:password label="password" name="userInfo.password" />
+			<s:textfield label="name" name="userInfo.name" />
+			<s:textfield label="phone_no" name="userInfo.phone_no" />
+			<s:textfield label="address" name="userInfo.address" />
+			<s:textfield label="resident_no" name="userInfo.resident_no" />
+			<s:textfield label="job_code" name="userInfo.job_code" />
+			</br>					
+			<s:submit value="insert" />
+	
+	
+</s:form>	
 	
 </body>
 </html>
