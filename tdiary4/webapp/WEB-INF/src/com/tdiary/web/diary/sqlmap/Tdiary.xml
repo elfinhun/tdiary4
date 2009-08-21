@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!DOCTYPE sqlMap PUBLIC "-//ibatis.apache.org//DTD SQL Map 2.0//EN"
+    "http://ibatis.apache.org/dtd/sql-map-2.dtd">
+
+<sqlMap namespace="Tdiary">
+	
+	<typeAlias alias="tdiary" type="com.tdiary.web.diary.model.Tdiary"/>
+	
+	<resultMap id="tdiaryResult" class="com.tdiary.web.diary.model.Tdiary">
+		<result property="tdiarySeq"  column="tdiary_seq" jdbcType="int"  javaType="java.lang.Integer" />
+		<result property="tdiaryTitle"  column="tdiary_title" jdbcType="VARCHAR"/>
+		<result property="tdiaryIntroduction"  column="tdiary_introduction" jdbcType="VARCHAR"/>
+		<result property="subscribeCode"  column="subscribe_code" jdbcType="VARCHAR"/>
+		<result property="publishCode"  column="publish_code" jdbcType="VARCHAR"/>
+		<result property="createUser"  column="create_user" jdbcType="int"  javaType="java.lang.Integer" />
+		<result property="createDate"  column="create_date" jdbcType="DATE"/>
+		<result property="updateUser"  column="update_user" jdbcType="int"  javaType="java.lang.Integer" />
+		<result property="updateDate"  column="update_date" jdbcType="DATE"/>
+	</resultMap>
+ 
+   <select id="getTdiaryList" resultMap="tdiaryResult">
+   	<![CDATA[
+	    SELECT tdiary.tdiary_seq,
+				tdiary.tdiary_title,
+				tdiary.tdiary_introduction,
+				tdiary.subscribe_code,
+				tdiary.publish_code,
+				tdiary.create_user,
+				tdiary.create_date,
+				tdiary.update_user,
+				tdiary.update_date
+	 	FROM tdiary 
+	 ]]>  
+  </select>
+  <select id="getTdiaryRowCount" resultClass="int">
+ 	<![CDATA[
+	 	select count(1) as count from tdiary
+	 ]]>  
+  </select>
+  <insert  id="insertTdiary" parameterClass="tdiary">
+  	<![CDATA[
+	 	INSERT INTO tdiary(tdiary_seq,tdiary_title,tdiary_introduction,subscribe_code,publish_code,create_user,create_date,update_user,update_date) 
+	 	values(#tdiarySeq#,#tdiaryTitle#,#tdiaryIntroduction#,#subscribeCode#,#publishCode#,#createUser#,SYSDATE(),#updateUser#,SYSDATE())
+	 ]]>  
+  </insert>
+  
+  	<update id="updateTdiary" parameterClass="tdiary">
+		<![CDATA[
+		UPDATE  tdiary 
+		   SET  tdiary_title = #tdiaryTitle# ,
+				tdiary_introduction = #tdiaryIntroduction# ,
+				subscribe_code = #subscribeCode# ,
+				publish_code = #publishCode# ,
+				update_user = #updateUser# ,
+				update_date = SYSDATE()
+		 WHERE	tdiary_seq = #tdiarySeq# 
+		]]>  
+	</update>
+  
+</sqlMap>
