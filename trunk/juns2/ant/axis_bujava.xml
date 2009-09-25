@@ -1,0 +1,33 @@
+<project name="juns" default="all" basedir=".">
+
+<echo message="pulling in property files"/>
+<property file="axis_bujava.properties"/>
+	
+	<target name="ftp_web" depends="ftp_src">
+		<ftp password="users.net" 
+			   server="juns.80port.net" 
+			   userid="javausers"
+			   remotedir="www.java-users2.net/ROOT/"
+			   verbose="yes" binary="true"  depends="true">
+			<fileset dir="ROOT">
+				<include name="**/*.*"/>
+				<exclude name="**/*.jar"/>
+			</fileset>
+		</ftp>
+	</target>
+	
+	<target name="ftp_src">
+		<ftp password="users.net" 
+					   server="juns.80port.net" 
+					   userid="javausers"
+					   remotedir="www.java-users2.net/src"
+					   verbose="yes" binary="true"  depends="true">
+			<fileset dir="src">
+				<include name="**/*.*"/>
+			</fileset> 
+		</ftp>
+	</target>
+	
+	<target name="all" depends="ftp_web"/>
+  
+</project>
