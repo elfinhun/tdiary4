@@ -10,7 +10,7 @@
 <div id="bodyDiv">
 	<table cellpadding="0" cellspacing="0" border="0">
 		<tr>
-			<td>This site making Java-Users2.Net ssss</td>
+			<td>This site making Java-Users2.Net</td>
 		</tr>
 	</table>
 </div>
