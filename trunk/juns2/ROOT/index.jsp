@@ -3,7 +3,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>JUNS(Java-Users2.Net)</title>
+<title>JUNS(Java-Users.Net)</title>
 </head>
 <frameset rows="0,*" frameborder="no" border="0" framespacing="0">
  	<frame name="topFrame"		id="topFrame"		title="topFrame"	scrolling="no"	noresize="noresize" />
